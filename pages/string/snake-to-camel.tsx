@@ -7,15 +7,15 @@ const SnakeToCamel = () => {
             <Head>
                 <title>スネークキャメル変換</title>
             </Head>
-            <div className='justify-center'>
-                <h1 className='text-4xl mb-5 font-bold'>スネークキャメル変換</h1>
+            <div className='flex flex-col justify-center items-center'>
+                <h1 className='text-4xl my-5 font-bold'>スネークキャメル変換</h1>
                 <p>
-                    入力した文字列のスネークケースをキャメルケースに変換します。
+                    入力したコードのスネークケースをキャメルケースに変換します。
                 </p>
-                <p>
-                    1. 入力欄に文字列を入れてください。<br />
-                    2. 実行ボタンをクリックしてください。
-                </p>
+            </div>
+            <div className='flex flex-col md:flex-row my-5'>
+                <textarea rows={5} placeholder="Your Code Here" className='bg-slate-700 m-2 rounded w-full md:w-1/2 focus:ring-blue-500'></textarea>
+                <textarea rows={8} className='bg-slate-700 m-2 rounded w-full md:w-1/2 focus:ring-blue-500'></textarea>
             </div>
         </>
 
