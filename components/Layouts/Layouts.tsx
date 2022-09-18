@@ -9,7 +9,7 @@ const Layout = ( { children}: { children: ReactElement }) => {
         <Navigationbar />
         <div>
             <Sidebar />
-            <main className="ml-72 min-h-screen border-l border-solid border-slate-700">
+            <main className="absolete ml-0 md:ml-72 min-h-screen border-l border-solid border-slate-700">
                 {children}
             </main>
         </div>
