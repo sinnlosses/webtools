@@ -40,7 +40,7 @@ const ChildListItem = (props: ChildType) => {
 
 export default function Sidebar() {
   return (
-    <aside className='bg-slate-900 h-screen md:w-72 hidden md:block fixed z-20 overflow-y-scroll'>
+    <aside className='bg-slate-900 h-screen md:w-72 fixed z-20 overflow-y-scroll'>
       <nav>
         <ul>
           {/* ホーム */}
