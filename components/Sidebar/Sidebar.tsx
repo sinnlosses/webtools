@@ -40,7 +40,7 @@ const ChildListItem = (props: ChildType) => {
 
 export default function Sidebar() {
   return (
-    <aside className='bg-slate-900 h-screen md:w-72 hidden md:block overflow-y-scroll'>
+    <aside className='bg-slate-900 h-screen md:w-72 hidden md:block fixed z-20 overflow-y-scroll'>
       <nav>
         <ul>
           {/* ホーム */}
@@ -58,6 +58,9 @@ export default function Sidebar() {
 
           {/* 設定 */}
           <ParentListItem key={Setting.title} title={Setting.title} icon={Setting.icon} link={Setting.link} />
+
+          {/* 余白 */}
+          <div className='my-20'></div>
         </ul>
       </nav>
     </aside>
