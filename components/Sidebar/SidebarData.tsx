@@ -14,11 +14,11 @@ export const ToolContents = [
     {
         title: "文字列操作",
         icon: <ModeEditIcon />,
-        link: "./string",
+        link: "/string",
         children: [
             {
                 title: "スネークキャメル変換",
-                link: "./string/snake-to-camel"
+                link: "/string/snake-to-camel"
             },
         ],
     },
@@ -27,6 +27,6 @@ export const ToolContents = [
 export const Setting = {
     title: "設定",
     icon: <SettingsIcon />,
-    link: "./Test",
+    link: "/Test",
 };
 
