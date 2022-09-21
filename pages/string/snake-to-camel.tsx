@@ -1,5 +1,37 @@
 import Head from 'next/head';
-import React, { ReactElement, ReactNode, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+
+
+const toCamel = (inputText:string) => {
+
+    // 入力文字列を1行ごとに分割
+    let inputLines:Array<string> = inputText.split("\n");
+
+    // 変換結果文字列格納配列
+    let cameledLines:Array<string> = [];
+
+    inputLines.map((inputLine) => {
+        let lineSplitByUnderScore = inputLine.split("_");
+        let cameledLine = "";
+
+        for (let j = 0; j < lineSplitByUnderScore.length; j++) {
+            if (j == 0) {
+                // 最初の要素はそのまま出力
+                cameledLine = lineSplitByUnderScore[j];
+            } else {
+                // アンダースコアの直後の文字を大文字にし、残りはそのまま出力
+                let firstCharaToUpper = lineSplitByUnderScore[j].substring(0, 1).toUpperCase();
+                let afterSecondCharas = lineSplitByUnderScore[j].substring(1)
+                cameledLine = cameledLine + firstCharaToUpper + afterSecondCharas;
+            }
+        }
+        cameledLines.push(cameledLine);
+    });
+
+    let cameledText = cameledLines.join("\n");
+
+    return cameledText;
+};
 
 const SnakeToCamel = () => {
     // 入力テキストエリアの状態
@@ -8,40 +40,9 @@ const SnakeToCamel = () => {
     // 出力テキストエリアの状態
     const [outputText, setOutputText] = useState("")
 
-    // スネークキャメル変換
-    const snakeToCamel = () => {
-
-        // 変換結果文字列
-        let result = "";
-
-        // 入力を行ごとに分割
-        let aryOutputText = inputText.split("\n");
-
-        // 選択行数分処理を繰り返す
-        for (let i = 0; i < aryOutputText.length; i++) {
-
-            let aryWork = aryOutputText[i].split("_");
-            let strTmp = "";
-
-            for (let j = 0; j < aryWork.length; j++) {
-                if (j == 0) {
-                    strTmp = aryWork[j];
-                } else {
-                    strTmp = strTmp + aryWork[j].substring(0, 1).toUpperCase() + aryWork[j].substring(1);
-                }
-            }
-            if (i+1 < aryOutputText.length) {
-                result = result + strTmp + "\n";
-            } else {
-                result = result + strTmp;
-            }
-        }
-        setOutputText(result)
-    };
-
     useEffect(() => {
         const timer = setTimeout(() => {
-          snakeToCamel()
+            setOutputText(toCamel(inputText));
         }, 500)
     
         return () => clearTimeout(timer)
