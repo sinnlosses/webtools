@@ -27,6 +27,6 @@ export const ToolContents = [
 export const Setting = {
     title: "設定",
     icon: <SettingsIcon />,
-    link: "/Test",
+    link: "/About",
 };
 
