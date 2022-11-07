@@ -1,8 +1,7 @@
-import React from 'react'
-import HomeIcon from '@mui/icons-material/Home';
-import ModeEditIcon from '@mui/icons-material/ModeEdit';
-import SettingsIcon from '@mui/icons-material/Settings';
-
+import React from "react";
+import HomeIcon from "@mui/icons-material/Home";
+import ModeEditIcon from "@mui/icons-material/ModeEdit";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 export const Home = {
     title: "ホーム",
@@ -18,7 +17,7 @@ export const ToolContents = [
         children: [
             {
                 title: "スネークキャメル変換",
-                link: "/string/snake-to-camel"
+                link: "/string/snake-to-camel",
             },
         ],
     },
@@ -29,4 +28,3 @@ export const Setting = {
     icon: <SettingsIcon />,
     link: "/About",
 };
-

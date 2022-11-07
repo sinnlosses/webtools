@@ -1,42 +1,38 @@
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import React, { ReactElement, ReactNode, useEffect, useState } from 'react';
-import { NextPage } from 'next';
-import Layout from '../components/Layouts/Layouts'
-import { useWindowSize } from 'react-use'
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+import React, { ReactElement, ReactNode, useEffect, useState } from "react";
+import { NextPage } from "next";
+import Layout from "../components/Layouts/Layouts";
+import { SidebarClassName } from "../components/Sidebar/Sidebar";
 
 type NextPageWithLayout = NextPage & {
-  getLayout?: (page:ReactElement) => ReactNode;
-}
-
-type AppPropsWithLayout = AppProps & {
-  Component: NextPageWithLayout
-}
-
-type TSidebarContext = {
-  sidebarStatus: string,
-  setSidebarStatus: React.Dispatch<React.SetStateAction<string>>
-}
-
-export const SidebarClassName = {
-  toggleOff: "hidden md:block",
-  toggleOn: "block",
+  getLayout?: (page: ReactElement) => ReactNode;
 };
 
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+/**
+ * サイドバーの表示、非表示を扱うコンテキストの型
+ */
+type TSidebarContext = {
+  sidebarStatus: string;
+  setSidebarStatus: React.Dispatch<React.SetStateAction<string>>;
+};
+
+// サイドバーの表示、非表示を扱うコンテキスト
 export const SidebarContext = React.createContext({} as TSidebarContext);
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
-
-  const [sidebarStatus, setSidebarStatus] = useState(SidebarClassName.toggleOff);
-
-  const {height, width} = useWindowSize();
-  useEffect(() => {
-    setSidebarStatus(SidebarClassName.toggleOff);
-  }, [width, height]);
+  // サイドバーの表示、非表示状態を管理
+  const [sidebarStatus, setSidebarStatus] = useState(
+    SidebarClassName.toggleOff
+  );
 
   const getLayout = Component.getLayout ?? ((page) => <Layout>{page}</Layout>);
   return (
-    <SidebarContext.Provider value={{sidebarStatus, setSidebarStatus}}>
+    <SidebarContext.Provider value={{ sidebarStatus, setSidebarStatus }}>
       {getLayout(<Component {...pageProps} />)}
     </SidebarContext.Provider>
   );

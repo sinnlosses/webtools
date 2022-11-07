@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import MenuIcon from '@mui/icons-material/Menu';
-import { SidebarContext, SidebarClassName } from "../../pages/_app";
+import { SidebarContext } from "../../pages/_app";
+import { SidebarClassName } from "../Sidebar/Sidebar";
 
 const Navigationbar = () => {
 
