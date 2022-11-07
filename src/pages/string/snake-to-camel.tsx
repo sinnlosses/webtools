@@ -53,17 +53,18 @@ const SnakeToCamel = () => {
       <Head>
         <title>スネークキャメル変換</title>
       </Head>
-      <div className="flex flex-col justify-center items-center">
+
+      <div className="text-center">
         <h1 className="text-4xl my-5 font-bold">スネークキャメル変換</h1>
-        <p>入力したコードのスネークケースをキャメルケースに変換します。</p>
       </div>
+
       <div className="flex flex-col md:flex-row my-5 justify-between">
         <div className="flex flex-col w-full md:w-1/2 m-2">
           <label>入力</label>
           <textarea
             rows={10}
             value={inputText}
-            placeholder="Your Code Here"
+            placeholder="Your Code Here(ex: snake_to_camel)"
             className="bg-slate-700 rounded focus:ring-blue-500 focus:outline-none p-1 caret-white"
             onChange={(e) => setInputText(e.target.value)}
           ></textarea>
