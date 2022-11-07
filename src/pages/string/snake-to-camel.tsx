@@ -63,14 +63,14 @@ const SnakeToCamel = () => {
                 <div className='flex flex-col w-full md:w-1/2 m-2'>
                     <label>入力</label>
                     <textarea rows={10} value={inputText} placeholder="Your Code Here"
-                              className='bg-slate-700 rounded focus:ring-blue-500 caret-white'
+                              className='bg-slate-700 rounded focus:ring-blue-500 focus:outline-none p-1 caret-white'
                               onChange={(e) => setInputText(e.target.value)}>
                     </textarea>
                 </div>
                 <div className='flex flex-col w-full md:w-1/2 m-2'>
                     <label>出力</label>
                     <textarea rows={10} value={outputText} readOnly 
-                              className='bg-slate-700 rounded  focus:ring-blue-500 caret-white'>
+                              className='bg-slate-700 rounded focus:ring-blue-500 focus:outline-none p-1 caret-white'>
                     </textarea>
                 </div>
             </div>
